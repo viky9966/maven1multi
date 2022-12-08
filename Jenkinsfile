@@ -25,6 +25,16 @@ pipeline
                 }
             }
         }
+    	stage('contdeploy')
+        {
+            steps
+            {
+                script
+                {
+                    cicd.newDeploy("sharedlibrarydec1","172.13.1.31","test")
+                }
+            }
+        }
     }
     
 }
