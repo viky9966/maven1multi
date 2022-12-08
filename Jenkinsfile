@@ -25,37 +25,6 @@ pipeline
                 }
             }
         }
-        stage('contdeploy')
-        {
-            steps
-            {
-                script
-                {
-                    cicd.newDeploy("sharedlibrarydec1","172.13.1.31","test")
-                }
-            }
-        }
-        stage('contTesting')
-        {
-            steps
-            {
-                script
-                {
-                    cicd.newDownload("maven-testing.git")
-                    cicd.runSelenium("sharedlibrarydec1")
-                }
-            }
-        }
-        stage('contDelivery')
-        {
-            steps
-            {
-                script
-                {
-                    cicd.newDeploy("sharedlibrarydec1","172.13.1.109","prod")
-                }
-            }
-        }
     }
     
 }
